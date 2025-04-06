@@ -2,9 +2,9 @@ import os
 import cv2
 
 
-squeezed_folder = '2025_04_04_alum_2'
+squeezed_folder = '2025_04_05_hb_walk'
 squeeze_factor = 1.33
-downsample = False
+downsample = True
 
 def main():
     save_path = os.path.join(squeezed_folder, 'desqueeze')
@@ -40,11 +40,11 @@ def main():
 
                 # to downsample, we want the original number of rows to be the same 
                 if r > c:
-                    target_r = r / squeeze_factor
-                    target_c = c
-                else:
-                    target_r = r
+                    target_r = r 
                     target_c = c / squeeze_factor
+                else:
+                    target_r = r / squeeze_factor
+                    target_c = c 
             target_r = int(target_r)
             target_c = int(target_c)
             # do resample
